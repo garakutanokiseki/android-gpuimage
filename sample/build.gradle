@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION as int
-    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION as int
@@ -20,12 +19,13 @@ android {
             assets.srcDirs = ['assets']
         }
 
-        instrumentTest.setRoot('tests')
+        //instrumentTest.setRoot('tests')
     }
 
     lintOptions {
         abortOnError true
     }
+    buildToolsVersion '27.0.3'
 }
 repositories {
     jcenter()
@@ -33,7 +33,7 @@ repositories {
 }
 
 dependencies {
-    compile project(':library')
+    implementation project(':library')
 //    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
-    compile 'com.android.support:support-v4:23.1.1'
+    implementation 'com.android.support:support-v4:23.1.1'
 }

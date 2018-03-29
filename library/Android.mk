@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := gpuimage-library
 LOCAL_LDFLAGS := -Wl,--build-id
 LOCAL_LDLIBS := \
-	-llog \
+	-llog -ljnigraphics -lGLESv2 \
 
 LOCAL_SRC_FILES := \
 	jni/yuv-decoder.c \

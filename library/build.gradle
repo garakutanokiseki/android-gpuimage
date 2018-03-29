@@ -3,7 +3,6 @@ apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION as int
-    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION as int
@@ -18,7 +17,7 @@ android {
             moduleName "gpuimage-library"
             stl "gnustl_shared"
             abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'
-            ldLibs "log"
+            ldLibs "log","GLESv2","jnigraphics"
         }
 
         splits {
@@ -43,7 +42,7 @@ android {
             jni.srcDirs = ['jni']
         }
 
-        instrumentTest.setRoot('tests')
+        //instrumentTest.setRoot('tests')
     }
 
     lintOptions {
@@ -55,6 +54,7 @@ android {
             path 'Android.mk'
         }
     }
+    buildToolsVersion '27.0.3'
 }
 
 task androidJavadocs(type: Javadoc) {
