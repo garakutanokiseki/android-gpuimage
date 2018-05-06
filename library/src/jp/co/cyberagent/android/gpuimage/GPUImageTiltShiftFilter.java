@@ -97,8 +97,17 @@ public class GPUImageTiltShiftFilter extends GPUImageTwoInputFilter {
     }
 
     public void setBitmap(Context context, final Bitmap bitmap){
+        Bitmap old = super.getBitmap();
+        if(old != null && !old.isRecycled()){
+            old.recycle();
+        }
+        super.setBitmap(bitmap);
+    }
+
+    public void setBitmap(Context context, final Bitmap bitmap, float blurSize){
        GPUImage gpuImage = new GPUImage(context);
        gpuImage.setImage(bitmap);
+        mBlurFilter.setBlurSize(blurSize);
        gpuImage.setFilter(mBlurFilter);
 
        Bitmap old = super.getBitmap();
