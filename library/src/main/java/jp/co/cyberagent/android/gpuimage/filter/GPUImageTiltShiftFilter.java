@@ -1,8 +1,10 @@
-package jp.co.cyberagent.android.gpuimage;
+package jp.co.cyberagent.android.gpuimage.filter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
+
+import jp.co.cyberagent.android.gpuimage.GPUImage;
 
 /**
  * A simulated tilt shift lens effect
