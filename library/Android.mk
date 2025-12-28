@@ -3,6 +3,8 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := gpuimage-library
 LOCAL_LDFLAGS := -Wl,--build-id
+LOCAL_LDFLAGS += -Wl,-z,max-page-size=16384
+
 LOCAL_LDLIBS := \
 	-llog -ljnigraphics -lGLESv2 \
 
