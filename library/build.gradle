@@ -29,6 +29,14 @@ android {
                 universalApk true
             }
         }
+
+        externalNativeBuild {
+            cmake {
+                // 16 KB ページサイズに対応させるためのリンカーフラグを追加
+                arguments "-DANDROID_STL=c++_shared"
+                cppFlags "-Wl,-z,max-page-size=16384"
+            }
+        }
     }
 
     sourceSets {
