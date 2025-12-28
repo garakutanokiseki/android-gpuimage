@@ -4,10 +4,12 @@ buildscript {
     repositories {
         jcenter()
         google()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0'
-        classpath 'com.novoda:bintray-release:0.8.1'
+        classpath 'com.android.tools.build:gradle:8.2.2'
+        //classpath 'com.android.tools.build:gradle:3.1.0'
+        //classpath 'com.novoda:bintray-release:0.8.1'
     }
 }
 
@@ -16,6 +18,7 @@ allprojects {
         jcenter()
         google()
         maven { url("https://oss.sonatype.org/content/repositories/snapshots/") }
+        mavenCentral()
     }
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
